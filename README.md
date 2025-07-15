@@ -141,5 +141,12 @@ fn main() {
         }
         println!("Current value of x: {}", x);
     }
+
+    let x = Some(42);
+    if let Some(value) = x {
+        println!("Value is: {}", value); // This will print 42
+    } else {
+        println!("No value found");
+    }
 }
 ```
