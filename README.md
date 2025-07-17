@@ -244,3 +244,7 @@ fn main() {
     }
 }
 ```
+
+## Functions
+
+### 
