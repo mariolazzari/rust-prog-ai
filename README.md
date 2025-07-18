@@ -247,4 +247,80 @@ fn main() {
 
 ## Functions
 
-### 
+### Function
+
+```rust
+fn main() {
+    process_numbers(&[1, 2, 3, 4, 5]);
+
+    let chunk = split_string("Hello,World,This,Is,Rust".to_string(), ',', 2);
+    println!("The selected chunk is: {}", chunk);
+}
+
+fn process_numbers(nums: &[i32]) {
+    let mut sum = 0;
+    for num in nums {
+        sum += num;
+    }
+
+    println!("The sum of the numbers is: {}", sum);
+
+    if sum % 2 == 0 {
+        println!("The sum is even");
+    } else {
+        println!("The sum is odd");
+    }
+}
+
+fn split_string(s: String, delimiter: char, field: usize) -> String {
+    let parts: Vec<&str> = s.split(delimiter).collect();
+    let res = parts.get(field);
+
+    return res.expect("Something went wrong...").to_string();
+}
+```
+
+### Borrowig
+
+```rust
+fn own_vector(vector: &mut Vec<i32>) {
+    vector.push(4);
+    println!("Vector inside function: {:?}", vector);
+}
+
+fn own_integer(mut value: i32) -> i32 {
+    value += 1;
+    println!("Integer inside function: {}", value);
+    value
+}
+
+fn own_string(s: &String) {
+    println!("String inside function: {}", s);
+}
+
+fn main() {
+    let mut my_vector = vec![1, 2, 3];
+    let my_int = 10;
+    let my_string = String::from("Hello, Rust!");
+
+    own_integer(my_int);
+    println!("Integer after function call: {}", my_int);
+
+    // own_string(my_string);
+    // println!("String after function call: {}", my_string);
+    // This line would cause a
+    // compile-time error because `my_string` is moved into `own_string`.
+
+    // borrow string
+    own_string(&my_string);
+
+    own_vector(&mut my_vector);
+    println!("Vector after function call: {:?}", my_vector);
+}
+```
+
+### Panic
+
+```rust
+
+```
