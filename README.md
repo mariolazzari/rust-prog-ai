@@ -448,3 +448,27 @@ fn main() {
     println!("My point: ({},{},{})", point.0, point.1, point.2);
 }
 ```
+
+## Strings and vectors
+
+### Strings and string slices
+
+```rust
+fn print_str(s: &str) {
+    println!("Print {}", s)
+}
+
+fn print_string(s: String) {
+    println!("Print {}", s)
+}
+
+fn main() {
+    // string size known at compilation time
+    let s = "String slice";
+    print_str(s);
+
+    // dynamic string size
+    let s = String::from("String");
+    print_string(s);
+}
+```
