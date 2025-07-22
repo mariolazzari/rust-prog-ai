@@ -680,3 +680,51 @@ fn main() {
     println!("File size: {}", file_size.format_size());
 }
 ```
+
+### Vectors and enums
+
+```rust
+enum Shape {
+    Circle(f64),
+    Square(f64),
+}
+
+fn main() {
+    let shapes = vec![Shape::Circle(1.1), Shape::Square(2.2)];
+    let total_area: f64 = shapes
+        .iter()
+        .map(|shape| match shape {
+            Shape::Circle(r) => std::f64::consts::PI * r * r,
+            Shape::Square(l) => l * l,
+        })
+        .sum();
+    println!("Total Area: {:.3}", total_area);
+}
+```
+
+### Exhaustive matches
+
+```rust
+enum WineGrapes {
+    Wine1,
+    Wine2,
+    Wine3,
+}
+
+fn taste_wine(grapes: WineGrapes) {
+    match grapes {
+        WineGrapes::Wine1 => println!("Wine 1"),
+        // WineGrapes::Wine2 => println!("Wine 2"),
+        // WineGrapes::Wine3 => println!("Wine 3"),
+        _ => print!("Wine"),
+    }
+}
+
+fn main() {
+    taste_wine(WineGrapes::Wine1);
+    taste_wine(WineGrapes::Wine2);
+    taste_wine(WineGrapes::Wine3);
+}
+```
+
+## Create a library
