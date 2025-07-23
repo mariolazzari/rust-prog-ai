@@ -787,13 +787,19 @@ Code LLDB extension
 
 ```makefile
 clean:
-	cargo clean
+ cargo clean
 
 build:
-	cargo build
+ cargo build
 ```
 
 ```sh
 make clean
 make build
 ```
+
+## Modules
+
+### Dependencies
+
+## Testing
