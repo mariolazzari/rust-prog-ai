@@ -784,3 +784,16 @@ cargo doc
 Code LLDB extension
 
 ### Makefile
+
+```makefile
+clean:
+	cargo clean
+
+build:
+	cargo build
+```
+
+```sh
+make clean
+make build
+```
