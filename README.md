@@ -803,3 +803,12 @@ make build
 ### Dependencies
 
 ## Testing
+
+### Intro
+
+```rust
+#[test]
+fn test_simple() {
+    assert!(true);
+}
+```
